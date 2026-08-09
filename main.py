@@ -96,8 +96,8 @@ if ddns_status == '4':
 
     RD = cmd(session, "RD")
 
-    version_hash = sha256(wa_inner_version + cr_version).hexdigest().upper()
-    AD = sha256(version_hash + RD).hexdigest().upper()
+    version_hash = sha256(wa_inner_version.encode(encoding="utf-8") + cr_version.encode(encoding="utf-8")).hexdigest().upper()
+    AD = sha256(version_hash.encode(encoding="utf-8") + RD.encode(encoding="utf-8")).hexdigest().upper()
 
     # Send the apply request
 
